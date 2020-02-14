@@ -52,14 +52,13 @@ task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
 }
 
-publishing {
-    publications {
-        // We need this check to cover Android Studio gradle sync
-        if(project.tasks.findByPath('bundleRelease') != null) {
-            maven(MavenPublication) {
-                artifact bundleRelease
-                artifactId project.artifactId
+project.afterEvaluate {
+    publishing {
+        publications {
 
+            maven(MavenPublication) {
+                artifact bundleReleaseAar
+                artifactId project.artifactId
                 artifact sourceJar
 
                 pom.withXml {
@@ -82,6 +81,7 @@ publishing {
         }
     }
 }
+
 
 // To release, place bintray_user and bintray_key properties in ~/.gradle/gradle.properties,
 // and run ./gradlew clean assembleRelease bintrayUpload
