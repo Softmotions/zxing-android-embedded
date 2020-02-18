@@ -33,7 +33,7 @@ public class BarcodeResult {
     }
 
     private static void drawLine(Canvas canvas, Paint paint, ResultPoint a, ResultPoint b, int scaleFactor) {
-        if (a != null && b != null) {
+        if (a != null && b != null && scaleFactor != 0) {
             canvas.drawLine(a.getX() / scaleFactor,
                     a.getY() / scaleFactor,
                     b.getX() / scaleFactor,
