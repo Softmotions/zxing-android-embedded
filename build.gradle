@@ -22,7 +22,7 @@ subprojects {
         }
     }
 
-    version = '3.6.1'
+    version = '3.6.2'
     group = 'com.journeyapps'
 
     ext.androidBuildTools = '28.0.3'
